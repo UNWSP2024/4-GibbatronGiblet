@@ -10,7 +10,36 @@
 
 def main():
     ######################
-    # WRITE YOUR CODE HERE
+    year_number = int(input("How many years of rainfall do you wish to average?"))
+    month_number= year_number * 12
+    rainfall_total = 0
+    current_month = 0
+    current_year = 0
+
+    for month in range(year_number):
+        current_year += 1
+        for month in range(12):
+            current_month %= 12
+            current_month += 1
+            monthly_rainfall = float(input(f"What is the average rainfall in inches for year {current_year} month {current_month}?"))
+            while monthly_rainfall < 0:
+                print("There is no such thing as negative rainfall. Please try again.")
+                monthly_rainfall = float(input(f"What is the average rainfall in inches for year {current_year} month {current_month}?"))
+            while monthly_rainfall > 370:
+                record_rainfall = input(f"Whoa! There's never been that much monthly rainfall before. Is {monthly_rainfall} inches the correct amount? (y/n):")
+                if record_rainfall == "n":
+                    monthly_rainfall = float(input(f"What is the average rainfall in inches for year {current_year} month {current_month}?"))
+                else:
+                    break
+            rainfall_total += monthly_rainfall
+
+
+    print(f"You have calculated the monthly rainfall average for {month_number} months.")
+    print(f"The total rainfall was {rainfall_total} inches.")
+    print(f"The average monthly rainfall was {rainfall_total / month_number} inches.")
+
+    #Written by Logan Gibson on 9/25/25. The program's name is "Average Rainfall Calculator"
+
     ######################    
 
 

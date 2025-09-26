@@ -5,8 +5,20 @@
 # Use either a "for loop" or "while loop" to accomplish this.
 
 def main():
+
     ######################
-    # WRITE YOUR CODE HERE
+    movie_number = int(input("Enter the number of movies you want to see: "))
+    title = 0
+    tickets = 0
+
+    for movie in range(movie_number):
+        title = input(f"What is the name of movie #{movie + 1}?")
+        current_tickets = int(input("How many tickets do you want for this movie?"))
+        tickets += current_tickets
+    print(f"You want {tickets} tickets.")
+
+    #Written by Logan Gibson on 9/25/25. The program's name is "Movie Ticket Purchaser"
+
     ######################
 
 
